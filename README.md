@@ -1,29 +1,41 @@
-# .
+# NullDevs - Plataforma de Comunicación
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicación Vue.js moderna para comunicación y mensajería con diseño responsive.
 
-## Recommended IDE Setup
+## 🚀 Características
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Autenticación de usuarios** - Sistema de login y registro
+- **Mensajería** - Envío y visualización de mensajes
+- **Diseño responsive** - Compatible con todos los dispositivos
+- **Interfaz moderna** - UI con gradientes y efectos de vidrio
+- **Vue 3 + Vite** - Tecnologías modernas de desarrollo
 
-## Customize configuration
+## 🛠️ Configuración del IDE Recomendada
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (desactivar Vetur).
 
-## Project Setup
+## 📦 Instalación del Proyecto
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Desarrollo con Hot-Reload
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilar para Producción
 
 ```sh
 npm run build
 ```
+
+## 🎨 Tecnologías Utilizadas
+
+- Vue 3
+- Vue Router
+- Pinia (State Management)
+- Vite
+- CSS3 con efectos modernos
