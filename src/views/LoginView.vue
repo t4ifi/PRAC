@@ -64,32 +64,26 @@ import { useAppStore } from '../stores/app'
 const router = useRouter()
 const appStore = useAppStore()
 
-// Estado del formulario
 const loginForm = ref({
   email: '',
   password: ''
 })
 
-// Estado de errores y modal
 const showErrors = ref(false)
 const showModal = ref(false)
 
-// Función para manejar el login
 function handleLogin() {
-  // Validar campos
   if (!loginForm.value.email || !loginForm.value.password) {
     showErrors.value = true
     showModal.value = true
     return
   }
   
-  // Intentar login
   const success = appStore.login(loginForm.value.email, loginForm.value.password)
   
   if (success) {
     router.push('/principal')
   } else {
-    // Si no existe el usuario, crear uno temporal para la demo
     appStore.registerUser({
       name: 'Usuario Demo',
       email: loginForm.value.email,
@@ -101,7 +95,6 @@ function handleLogin() {
   }
 }
 
-// Función para cerrar modal
 function closeModal() {
   showModal.value = false
   showErrors.value = false

@@ -124,7 +124,6 @@ import { useAppStore } from '../stores/app'
 const router = useRouter()
 const appStore = useAppStore()
 
-// Estado del formulario
 const registerForm = ref({
   name: '',
   email: '',
@@ -133,13 +132,11 @@ const registerForm = ref({
   confirmPassword: ''
 })
 
-// Estado de errores y modales
 const showErrors = ref(false)
 const showErrorModal = ref(false)
 const showSuccessModal = ref(false)
 const errorMessage = ref('')
 
-// Campos faltantes
 const missingFields = computed(() => {
   const missing = []
   if (!registerForm.value.name) missing.push('Nombre Completo')
@@ -160,14 +157,12 @@ function handleRegister() {
     return
   }
   
-  // Validar que las contraseñas coincidan
   if (registerForm.value.password !== registerForm.value.confirmPassword) {
     errorMessage.value = 'Las contraseñas no coinciden. Por favor, verifícalas.'
     showErrorModal.value = true
     return
   }
   
-  // Validar formato de email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(registerForm.value.email)) {
     errorMessage.value = 'Por favor, ingresa un correo electrónico válido.'
@@ -175,7 +170,6 @@ function handleRegister() {
     return
   }
   
-  // Verificar si el email ya está registrado
   const existingUser = appStore.registeredUsers.find(user => user.email === registerForm.value.email)
   if (existingUser) {
     errorMessage.value = 'Este correo electrónico ya está registrado. Intenta con otro.'
@@ -183,7 +177,6 @@ function handleRegister() {
     return
   }
   
-  // Registrar usuario
   try {
     appStore.registerUser({
       name: registerForm.value.name,
@@ -199,7 +192,6 @@ function handleRegister() {
   }
 }
 
-// Función para resetear el formulario
 function resetForm() {
   registerForm.value = {
     name: '',
