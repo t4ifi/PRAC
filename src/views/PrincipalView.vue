@@ -87,39 +87,32 @@ import { useAppStore } from '../stores/app'
 const router = useRouter()
 const appStore = useAppStore()
 
-// Estado local
 const showUserMenu = ref(false)
 const showLogoutModal = ref(false)
 
-// Función para obtener iniciales del usuario
 function getUserInitials() {
   const name = appStore.currentUser?.name || 'Usuario'
   return name.split(' ').map(n => n[0]).join('').toUpperCase()
 }
 
-// Función para manejar logout
 function handleLogout() {
   showUserMenu.value = false
   showLogoutModal.value = true
 }
 
-// Función para confirmar logout
 function confirmLogout() {
   appStore.logout()
   router.push('/login')
 }
 
-// Función para cerrar modal de logout
 function closeLogoutModal() {
   showLogoutModal.value = false
 }
 
-// Cerrar menú de usuario al hacer click fuera
 function closeUserMenu() {
   showUserMenu.value = false
 }
 
-// Verificar autenticación
 if (!appStore.isAuthenticated) {
   router.push('/login')
 }
