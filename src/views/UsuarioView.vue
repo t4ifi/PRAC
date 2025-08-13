@@ -112,21 +112,17 @@ import { useAppStore } from '../stores/app'
 const router = useRouter()
 const appStore = useAppStore()
 
-// Estado del modal
 const showEditModal = ref(false)
 
-// Verificar autenticación
 if (!appStore.isAuthenticated) {
   router.push('/login')
 }
 
-// Función para obtener iniciales del usuario
 function getUserInitials() {
   const name = appStore.currentUser?.name || 'Usuario'
   return name.split(' ').map(n => n[0]).join('').toUpperCase()
 }
 
-// Función para obtener fecha de registro
 function getJoinDate() {
   if (appStore.currentUser?.createdAt) {
     return new Date(appStore.currentUser.createdAt).toLocaleDateString('es-ES')
@@ -134,17 +130,14 @@ function getJoinDate() {
   return new Date().toLocaleDateString('es-ES')
 }
 
-// Mensajes recientes (últimos 3)
 const recentMessages = computed(() => {
   return appStore.getCurrentUserMessages.slice(-3).reverse()
 })
 
-// Función para editar perfil
 function editProfile() {
   showEditModal.value = true
 }
 
-// Función para cerrar modal
 function closeEditModal() {
   showEditModal.value = false
 }
