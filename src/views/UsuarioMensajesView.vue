@@ -132,7 +132,6 @@ import { useAppStore } from '../stores/app'
 const router = useRouter()
 const appStore = useAppStore()
 
-// Estado del modal y formulario
 const showNewMessageModal = ref(false)
 const showErrors = ref(false)
 const newMessage = ref({
@@ -141,23 +140,19 @@ const newMessage = ref({
   content: ''
 })
 
-// Verificar autenticación
 if (!appStore.isAuthenticated) {
   router.push('/login')
 }
 
-// Mensajes ordenados por fecha (más recientes primero)
 const sortedMessages = computed(() => {
   return [...appStore.getCurrentUserMessages].sort((a, b) => 
     new Date(b.createdAt) - new Date(a.createdAt)
   )
 })
 
-// Función para abrir modal de nuevo mensaje
 function openNewMessageModal() {
   showNewMessageModal.value = true
   showErrors.value = false
-  // Resetear formulario
   newMessage.value = {
     recipient: '',
     title: '',
@@ -165,28 +160,23 @@ function openNewMessageModal() {
   }
 }
 
-// Función para cerrar modal
 function closeNewMessageModal() {
   showNewMessageModal.value = false
   showErrors.value = false
 }
 
-// Función para enviar mensaje
 function sendMessage() {
-  // Validar campos
   if (!newMessage.value.recipient || !newMessage.value.title || !newMessage.value.content) {
     showErrors.value = true
     return
   }
   
-  // Añadir mensaje al store
   appStore.addMessage({
     recipient: newMessage.value.recipient,
     title: newMessage.value.title,
     content: newMessage.value.content
   })
   
-  // Cerrar modal
   closeNewMessageModal()
 }
 </script>

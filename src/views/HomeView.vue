@@ -32,7 +32,6 @@
 </template>
 
 <script setup>
-// No necesitamos lógica adicional para esta vista
 </script>
 
 <style scoped>
