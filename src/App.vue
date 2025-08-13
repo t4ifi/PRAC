@@ -39,7 +39,6 @@ body {
   padding: 0;
 }
 
-/* Estilos globales para botones */
 .btn {
   padding: 14px 24px;
   border-radius: 12px;
@@ -67,7 +66,6 @@ body {
   transform: none !important;
 }
 
-/* Estilos globales para formularios */
 input, textarea, select {
   font-family: Arial, sans-serif;
   border-radius: 10px;
@@ -88,7 +86,6 @@ input.error, textarea.error {
   background-color: #fef2f2;
 }
 
-/* Utilidades */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
@@ -108,12 +105,10 @@ input.error, textarea.error {
 .p-3 { padding: 1.5rem; }
 .p-4 { padding: 2rem; }
 
-/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar personalizada */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -131,7 +126,6 @@ html {
   background: #94a3b8;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -150,7 +144,6 @@ html {
   animation: slideInUp 0.8s ease-out;
 }
 
-/* Responsividad */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
